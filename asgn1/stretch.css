@@ -1,0 +1,49 @@
+/* 
+  CSE183 Assignment 2
+
+  CSS for Stretch Requirement using two or all of the following:
+
+    Gradients
+    Transtitions
+    Animations
+
+  Partial credit for using just one.
+*/
+
+.letter { 
+  font-size: 40pt;
+  font-family: monospace, Courier, Lucida Console;
+  background-color: yellow;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.num { 
+  font-size: 40pt;
+  font-family: monospace, Courier, Lucida Console;
+  background-color: yellow;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  animation: spin 10s linear infinite;
+}
+
+/* https://www.w3schools.com/css/css3_transitions.asp */
+
+.letter:hover {
+  width: 300px;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+}
+
+/* https://codepen.io/valhead/pen/rfump */
+
+@keyframes spin {
+  100% {transform: rotate(1turn); }
+}

@@ -1,0 +1,27 @@
+/* 
+  CSE183 Assignment 1
+
+  CSS for Basic Requirement 
+*/
+
+.letter { 
+  font-size: 40pt;
+  font-family: monospace, Courier, Lucida Console;
+  background-color: yellow;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.num { 
+  font-size: 40pt;
+  font-family: monospace, Courier, Lucida Console;
+  background-color: yellow;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
