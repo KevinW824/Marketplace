@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634015099318" clover="3.2.0">
-  <project timestamp="1634015099318" name="All files">
+<coverage generated="1634016289550" clover="3.2.0">
+  <project timestamp="1634016289551" name="All files">
     <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="22" coveredelements="22" complexity="0" loc="15" ncloc="15" packages="1" files="1" classes="1"/>
     <file name="templater.js" path="/Users/kevinwang/CSE/183/asgn2/templater.js">
       <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
