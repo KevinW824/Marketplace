@@ -7,6 +7,7 @@ class Templater {
    * @param {string} template - A {{ }} tagged string
    */
   constructor(template) {
+    this.template = template;
   }
 
   /**
@@ -19,7 +20,25 @@ class Templater {
    *     found in map
    */
   apply(map, strict) {
-    return 'Not Implemented';
+    const regex = /{{[^{}}]*}}/g;
+    let str = this.template;
+    let m;
+
+    while ((m = regex.exec(this.template)) != null) { // find next match
+      m.forEach((match) => { // extract match
+        // get word between curly braces
+        const matchKey = match.substring(2, match.length - 2);
+        if (matchKey in map) {
+          str = str.replace(match, map[matchKey]);
+        } else if (strict) {
+          throw new UserException(matchKey + 'is not found');
+        } else {
+          str = str.replace(match, '');
+          str = str.replace('  ', ' '); // get rid of double spaces
+        }
+      });
+    }
+    return str;
   }
 }
 

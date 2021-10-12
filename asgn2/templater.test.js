@@ -29,6 +29,56 @@ test('Missing Tag', () => {
 /** */
 test('Missing Tag Strict', () => {
   const t = new Templater('Mary {{had}} a {{little}} {{lamb}}');
-  expect(() => t.apply({had: 'had', lamb: 'lamb'}, true));
-  toThrowError();
+  expect(() => t.apply({had: 'had', lamb: 'lamb'}, true))
+      .toThrowError();
+});
+
+
+// Additional Tests
+test('Multiple Missing Tag Strict', () => {
+  const t = new Templater('Mary {{had}} a {{little}} {{lamb}}');
+  expect(() => t.apply({had: 'had'}, true))
+      .toThrowError();
+});
+
+/** */
+test('White space in tag', () => {
+  const t = new Templater('Mary {{had }} a {{little}} {{lamb}}');
+  expect(t.apply({had: 'had', little: 'little', lamb: 'lamb'}))
+      .toBe('Mary a little lamb');
+});
+
+/** */
+test('Multiple white spaces in tags', () => {
+  const t = new Templater('Mary {{had }} a {{ little }} {{  lamb}}');
+  expect(t.apply({had: 'had', little: 'little', lamb: 'lamb'}))
+      .toBe('Mary a ');
+});
+
+/** */
+test('No space', () => {
+  const t = new Templater('Mary {{had}}{{little}}');
+  expect(t.apply({had: 'had', little: 'little'}))
+      .toBe('Mary hadlittle');
+});
+
+/** */
+test('Same tag', () => {
+  const t = new Templater('Mary {{had}} {{had}}');
+  expect(t.apply({had: 'had', had: 'had'}))
+      .toBe('Mary had had');
+});
+
+/** */
+test('Sparated by other chars', () => {
+  const t = new Templater('Mary {{had}}-{{little}}');
+  expect(t.apply({had: 'had', little: 'little'}))
+      .toBe('Mary had-little');
+});
+
+/** */
+test('Edge case for Regex', () => {
+  const t = new Templater('Mary {{had}} {} {{little}}');
+  expect(t.apply({had: 'had', little: 'little'}))
+      .toBe('Mary had {} little');
 });
