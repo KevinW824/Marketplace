@@ -1,0 +1,33 @@
+[
+    {
+        "imgUrl":"https://www.autotrader.com/wp-content/uploads/2020/02/750il.jpg?w=600&h=400&crop=1",
+        "productName": "Car 1",
+        "price": "$5,000",
+        "location": "Santa Cruz, CA"
+    }, 
+    {
+        "imgUrl":"https://cs.copart.com/v1/AUTH_svc.pdoc00001/PIX432/01c49772-5155-4117-acf5-6f44d3683eed.JPG",
+        "productName": "Car 2",
+        "price": "$6,000",
+        "location": "Santa Cruz, CA"
+
+    }, 
+    {
+        "imgUrl":"https://cdn05.carsforsale.com/008d06c64708e568c3f8002bffabf8ca30/800x600/2007-saturn-aura-xe-4dr-sedan.jpg",
+        "productName": "Car 3",
+        "price": "$5,600",
+        "location":"Santa Cruz, CA"
+    }, 
+    {
+        "imgUrl":"https://www.motortrend.com/uploads/sites/5/2014/10/2012-Honda-Accord-SE-sedan-front-three-quarter.jpg?fit=around%7C875:492",
+        "productName": "Car 4",
+        "price": "$7,000",
+        "location":"Santa Cruz, CA"
+    },
+    {
+        "imgUrl":"https://www.motortrend.com/uploads/sites/5/2014/10/2012-Honda-Accord-SE-sedan-front-three-quarter.jpg?fit=around%7C875:492",
+        "productName": "Car 5",
+        "price": "$6,000",
+        "location":"Santa Cruz, CA"
+    }
+]

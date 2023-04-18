@@ -1,0 +1,202 @@
+#
+# CSE183 Assignment 8 Backend
+#
+
+openapi: '3.0.3'
+
+info:
+  description: CSE183 Assignment 8 Backend
+  version: 0.1.0
+  title: CSE183 Assignment 8 Backend
+
+servers:
+  - url: http://localhost:3010/v0
+
+paths:
+  /todaysPicks: 
+    get:
+      description: Receive todays picks data
+      security: []
+      parameters:
+      - name: category
+        in: query
+        description: Name of category for listings
+        required: false
+        schema:
+          type: string
+      responses: 
+        200:
+          description: Succesful
+          content: 
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/todaysResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /category/{name}:
+    get:
+      description: Get category data
+      security: []
+      parameters:
+      - name: name
+        in: path
+        description: Name of category
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Succesfully got category data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /signup:
+    post:
+      description: Creates a new user
+      security: []
+      requestBody:
+        description: Application to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUser'
+      responses:
+        201:
+          description: Application response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewUser'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /dummy:
+    get:
+      description: Dummy Endpoint
+      security: []
+      responses:
+        200:
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DummyResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+                
+components:
+  schemas:
+    DummyResponse:
+      properties:
+        message:
+          type: string
+      required:
+        - message
+          
+    Error:
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+      required:
+        - code
+        - message
+
+    todaysResponse: 
+      type: array
+      items:
+        $ref: '#/components/schemas/listedItem'
+
+    listedItem:
+      type: object
+      properties:
+        title: 
+          type: string
+        name:
+          type: string
+        price: 
+          type: string
+        date:
+          type: string
+        imgUrl:
+          type: string
+      # required:
+        # - name
+        # - date
+        # - price
+        # - title
+        # - imgUrl
+    
+    CategoryResponse:
+      type: object
+      properties:
+        sub:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        filter:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              value:
+                type: array
+                items:
+                  type: string
+                uniqueItems: true
+            required:
+              - name
+              - type
+
+    NewUser:
+      type: object
+      properties:
+        fn:
+          type: string
+        ln:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        password:
+          type: string
+
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: [] 

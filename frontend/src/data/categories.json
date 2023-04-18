@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Toys",
+        "subcategories": [
+            {"name": "Trading card games"}, 
+            {
+                "name": "Action Figures",
+                "subcategories":[
+                    {
+                        "name": "Avengers"
+                    }, 
+                    {
+                        "name": "GI JOE"
+                    },
+                    {
+                        "name": "Power Rangers"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cars",
+        "subcategories": [
+            {
+                "name": "Toyata"
+            },
+            {
+                "name": "Subawu"
+            },                {
+                "name": "Lambo"
+            }
+        ]
+    }
+]
